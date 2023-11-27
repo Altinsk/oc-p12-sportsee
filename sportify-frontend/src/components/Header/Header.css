@@ -1,0 +1,52 @@
+.header {
+    background-color: #000000;
+    color: #fff;
+    min-height: 1.5rem;
+    width: auto;
+    padding: 1rem 0;
+  }
+  
+  .logo {
+    width: 8rem;
+    height: 2.5rem;
+    margin-left: 1.5rem;
+  }
+  .container {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .container > div {
+    width: 20%;
+  }
+  .container > ul {
+    width: 80%;
+  }
+  
+  .split {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    list-style: none;
+    color: #fff;
+  }
+  
+  img {
+    display: inline-block;
+    height: auto;
+    width: 100%;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .flexible-image {
+    border-radius: 50%;
+    height: 2.2rem;
+    width: 2.2rem;
+  }
+  
