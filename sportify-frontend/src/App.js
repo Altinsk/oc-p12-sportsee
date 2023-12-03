@@ -1,13 +1,13 @@
 import Header from "../src/components/Header/Header";
-import Drawer from "./components/Drawer/Drawer";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
     <div className="App">
       <Header />
-
+      
       <main style={{ display: "flex" }}>
-        <Drawer />
+        <Sidebar />
 
       </main>
     </div>
