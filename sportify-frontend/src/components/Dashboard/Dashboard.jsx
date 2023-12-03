@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./dashboard.css";
-import BarGraph from "../../component/BarGraph";
-import LineGraph from "../../component/LineGraph";
-import RadarGraph from "../../component/RadarGraph";
-import PieGraph from "../../component/PieGraph";
-import Stats from "./Stats";
+import "./Dashboard.css";
+import BarGraph from "../../charts/BarGraph/BarGraph";
+import LineGraph from "../../charts/LineGraph/LineGraph";
+import RadarGraph from "../../charts/RadarGraph/RadarGraph";
+import PieGraph from "../../charts/PieGraph/PieGraph";
+import Stats from "../Stats/Stats";
 import {
   getUserActivity,
   getUserAverageSessions,
