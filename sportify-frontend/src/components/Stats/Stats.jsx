@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from "react";
 import IconFire from "../../icons/IconFire";
-import { getUserById } from "../../service/axios-api";
 import proteinsPic from "../../icons/png-Icons/protein-icon.png";
 import carbsIPic from "../../icons/png-Icons/carbs-icon.png";
 import fatPic from "../../icons/png-Icons/fat-icon.png";
 
-export default function Stats() {
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    fetchUserData();
-
-    async function fetchUserData() {
-      const response = await getUserById(18);
-      setUserData(response?.data || null);
-    }
-  }, []);
+export default function Stats(props) {
+  const { userData } = { ...props };
 
   return (
     <>
