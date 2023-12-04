@@ -30,8 +30,8 @@ export default function BarGraph(props) {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Bar dataKey="calories" fill="black" />
-          <Bar dataKey="kilogram" fill="red" />
+          <Bar barSize={10} dataKey="calories" fill="red" />
+          <Bar barSize={10} dataKey="kilogram" fill="black" />
         </BarChart>
       </ResponsiveContainer>
     </>

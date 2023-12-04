@@ -22,17 +22,17 @@ export default function Dashboard() {
     fetchUserPerformance();
 
     async function fetchActivity() {
-      const response = await getUserActivity(12);
+      const response = await getUserActivity(18);
       setActivity(response?.data?.sessions || null);
     }
 
     async function fetchAverageSessions() {
-      const response = await getUserAverageSessions(12);
+      const response = await getUserAverageSessions(18);
       setAverageSessions(response?.data?.sessions || null);
     }
 
     async function fetchUserPerformance() {
-      const response = await getUserPerformance(12);
+      const response = await getUserPerformance(18);
       setUserPerformance(response?.data?.sessions || null);
     }
   }, []);
@@ -44,7 +44,7 @@ export default function Dashboard() {
           <h1>
             Bonjour <span style={{ color: "red" }}>Thomas</span>
           </h1>
-          <p>Lorem ipsum dolor sit amet consectetur, </p>
+          <p>Félicitation ! Vous avez explosé vos objectifs hier 👏 </p>
         </article>
 
         <main className="dashboard__main">

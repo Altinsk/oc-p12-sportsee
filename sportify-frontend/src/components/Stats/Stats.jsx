@@ -12,7 +12,7 @@ export default function Stats() {
     fetchUserData();
 
     async function fetchUserData() {
-      const response = await getUserById(12);
+      const response = await getUserById(18);
       setUserData(response?.data || null);
     }
   }, []);
