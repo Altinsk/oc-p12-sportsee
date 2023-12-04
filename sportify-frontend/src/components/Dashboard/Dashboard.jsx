@@ -50,7 +50,7 @@ export default function Dashboard() {
 
     async function fetchUserPerformance() {
       const response = await getUserPerformance(12);
-      setUserPerformance(response?.data?.sessions || USER_PERFORMANCE[0].data);
+      setUserPerformance(response || USER_PERFORMANCE[0]);
     }
   }, []);
 
