@@ -26,10 +26,10 @@ export default function Dashboard() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
+    fetchUserData();
     fetchActivity();
     fetchAverageSessions();
     fetchUserPerformance();
-    fetchUserData();
 
     async function fetchUserData() {
       const response = await getUserById(18);
