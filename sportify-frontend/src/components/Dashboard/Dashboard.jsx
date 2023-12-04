@@ -29,7 +29,6 @@ export default function Dashboard() {
     fetchActivity();
     fetchAverageSessions();
     fetchUserPerformance();
-
     fetchUserData();
 
     async function fetchUserData() {
