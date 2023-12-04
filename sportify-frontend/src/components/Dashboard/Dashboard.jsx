@@ -32,24 +32,24 @@ export default function Dashboard() {
     fetchUserPerformance();
 
     async function fetchUserData() {
-      const response = await getUserById(18);
+      const response = await getUserById(12);
       setUserData(response?.data || USER_MAIN_DATA[0]);
     }
 
     async function fetchActivity() {
-      const response = await getUserActivity(18);
+      const response = await getUserActivity(12);
       setActivity(response?.data?.sessions || USER_ACTIVITY[0].sessions);
     }
 
     async function fetchAverageSessions() {
-      const response = await getUserAverageSessions(18);
+      const response = await getUserAverageSessions(12);
       setAverageSessions(
         response?.data?.sessions || USER_AVERAGE_SESSIONS[0].sessions
       );
     }
 
     async function fetchUserPerformance() {
-      const response = await getUserPerformance(18);
+      const response = await getUserPerformance(12);
       setUserPerformance(response?.data?.sessions || USER_PERFORMANCE[0].data);
     }
   }, []);

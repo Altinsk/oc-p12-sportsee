@@ -105,7 +105,7 @@ export default class PieGraph extends PureComponent {
             outerRadius={80}
             fill="red"
             dataKey="value"
-            // onMouseEnter={this.onPieEnter}
+            //onMouseEnter={this.onPieEnter}
           />
         </PieChart>
       </ResponsiveContainer>
