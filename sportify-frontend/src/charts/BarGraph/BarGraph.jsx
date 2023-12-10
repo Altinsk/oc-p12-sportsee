@@ -25,11 +25,31 @@ function Dot({ color }) {
   );
 }
 
-// HINT: modified
 export default function BarGraph(props) {
   let { data } = { ...props };
   data =
     data?.map((iterator, index) => ({ ...iterator, day: index + 1 })) || [];
+
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          className="custom-tooltip"
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: 10,
+            fontSize: 10,
+          }}
+        >
+          <p>{`${payload[0].value}kg`}</p>
+          <p>{`${payload[1].value}kcal`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
 
   return (
     <>
@@ -56,8 +76,6 @@ export default function BarGraph(props) {
         <div style={{ textAlign: "center" }}> Calories brulée (kCal)</div>
       </div>
 
-      <br></br>
-
       <ResponsiveContainer width="100%" height={250}>
         <BarChart
           data={data}
@@ -67,14 +85,20 @@ export default function BarGraph(props) {
             left: 20,
             bottom: 5,
           }}
+          barGap={12}
+          barSize={12}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
-          <Tooltip />
-
-          <Bar dataKey="calories" fill="black" name="" />
-          <Bar dataKey="kilogram" fill="red" name="" />
+          <CartesianGrid vertical={false} strokeDasharray="3 3" />
+          <XAxis dataKey="day" tickLine={false} tickMargin={18} />
+          <YAxis
+            orientation="right"
+            axisLine={false}
+            tickLine={false}
+            tickMargin={50}
+          />
+          <Tooltip content={<CustomTooltip />} />
+          <Bar dataKey="calories" fill="black" name="" radius={[5, 5, 0, 0]} />
+          <Bar dataKey="kilogram" fill="red" name="" radius={[5, 5, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </>

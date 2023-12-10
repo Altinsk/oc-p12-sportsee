@@ -41,7 +41,7 @@ export default function LineGraph(props) {
           }}
         >
           <rect
-            x={350}
+            x={190}
             y={0}
             width="40%"
             height="100%"
