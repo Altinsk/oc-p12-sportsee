@@ -21,6 +21,11 @@
 
 .disc > p {
   font-size: 1rem;
+  margin-top: 0;
+}
+
+.disc h1 {
+  margin-bottom: 0;
 }
 
 .dashboard__main {
