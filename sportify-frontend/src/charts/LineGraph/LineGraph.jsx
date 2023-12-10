@@ -3,37 +3,80 @@ import {
   LineChart,
   Line,
   XAxis,
-  YAxis,
-  CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
+  Legend,
 } from "recharts";
+
+const daysObject = {
+  1: "L",
+  2: "M",
+  3: "M",
+  4: "J",
+  5: "V",
+  6: "S",
+  7: "D",
+};
 
 export default function LineGraph(props) {
   // HINT:
-  const { data } = { ...props };
+  let { data } = { ...props };
+  data =
+    data?.map((item) => ({ ...item, label: daysObject[item?.day] || "" })) ||
+    [];
+
+  console.log("data", data);
 
   return (
     <>
       <ResponsiveContainer width={"100%"} height={250}>
         <LineChart
           data={data}
+          style={{ backgroundColor: "red" }}
           margin={{
             top: 20,
             right: 30,
-            left: 0,
+            left: 40,
             bottom: 10,
           }}
-          style={{ backgroundColor: "red" }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" height={60} tick={<CustomizedAxisTick />} />
-          <YAxis />
+          <rect
+            x={350}
+            y={0}
+            width="40%"
+            height="100%"
+            fill="black"
+            opacity={0.3}
+            style={{ position: "relative", zIndex: -1 }}
+          />
+          <XAxis
+            dataKey="label"
+            height={60}
+            tick={<CustomizedAxisTick />}
+            axisLine={false}
+            tickLine={false}
+          />
+          <Legend
+            wrapperStyle={{ top: 10, right: "20%" }}
+            layout="horizontal"
+            verticalAlign="top"
+            align="center"
+            iconSize={0}
+          />
           <Tooltip />
-          <Legend />
 
-          <Line type="monotone" dataKey="sessionLength" stroke="white" />
+          <Line
+            type="natural"
+            name="Durée moyenne des sessions"
+            dataKey="sessionLength"
+            stroke="white"
+            dot={({ cx, cy, stroke, payload }) => {
+              if (payload.label === "V") {
+                return <circle cx={cx} cy={cy} r={6} fill={stroke} />;
+              }
+              return null;
+            }}
+          />
         </LineChart>
       </ResponsiveContainer>
     </>
@@ -43,18 +86,15 @@ export default function LineGraph(props) {
 function CustomizedAxisTick(props) {
   const { x, y, payload } = props;
 
+  console.log("payload", payload);
+
   return (
-    <g transform={`translate(${x},${y})`}>
-      <text
-        x={0}
-        y={0}
-        dy={16}
-        textAnchor="end"
-        fill="black"
-        transform="rotate(-35)"
-      >
-        {payload.value}
-      </text>
-    </g>
+    <>
+      <g transform={`translate(${x},${y})`}>
+        <text x={0} y={0} dy={30} textAnchor="end" fill="white">
+          {payload.value}
+        </text>
+      </g>
+    </>
   );
 }

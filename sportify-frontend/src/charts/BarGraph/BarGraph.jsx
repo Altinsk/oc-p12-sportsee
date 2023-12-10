@@ -6,15 +6,58 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
 } from "recharts";
 
+function Dot({ color }) {
+  return (
+    <div
+      style={{
+        width: "10px",
+        height: "10px",
+        marginTop: "7px",
+        marginRight: "5px",
+        marginLeft: "40px",
+        backgroundColor: color,
+        borderRadius: "50%",
+      }}
+    />
+  );
+}
+
+// HINT: modified
 export default function BarGraph(props) {
-  const { data } = { ...props };
+  let { data } = { ...props };
+  data =
+    data?.map((iterator, index) => ({ ...iterator, day: index + 1 })) || [];
 
   return (
     <>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          marginRight: 80,
+          marginLeft: 40,
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto auto auto",
+            flex: 1,
+          }}
+        >
+          <div>Activité quotidienne</div>
+        </div>
+        <Dot color={"black"} />
+        <div style={{ textAlign: "center" }}> Poids (kg)</div>
+        <Dot color={"red"} />
+        <div style={{ textAlign: "center" }}> Calories brulée (kCal)</div>
+      </div>
+
+      <br></br>
+
       <ResponsiveContainer width="100%" height={250}>
         <BarChart
           data={data}
@@ -29,9 +72,9 @@ export default function BarGraph(props) {
           <XAxis dataKey="day" />
           <YAxis />
           <Tooltip />
-          <Legend />
-          <Bar barSize={10} dataKey="calories" fill="red" />
-          <Bar barSize={10} dataKey="kilogram" fill="black" />
+
+          <Bar dataKey="calories" fill="black" name="" />
+          <Bar dataKey="kilogram" fill="red" name="" />
         </BarChart>
       </ResponsiveContainer>
     </>

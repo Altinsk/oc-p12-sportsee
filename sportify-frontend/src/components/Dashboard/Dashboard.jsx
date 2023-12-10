@@ -32,25 +32,25 @@ export default function Dashboard() {
     fetchUserPerformance();
 
     async function fetchUserData() {
-      const response = await getUserById(12);
-      setUserData(response?.data || USER_MAIN_DATA[0]);
+      const response = await getUserById(18);
+      setUserData(response?.data || USER_MAIN_DATA[1]);
     }
 
     async function fetchActivity() {
-      const response = await getUserActivity(12);
-      setActivity(response?.data?.sessions || USER_ACTIVITY[0].sessions);
+      const response = await getUserActivity(18);
+      setActivity(response?.data?.sessions || USER_ACTIVITY[1].sessions);
     }
 
     async function fetchAverageSessions() {
-      const response = await getUserAverageSessions(12);
+      const response = await getUserAverageSessions(18);
       setAverageSessions(
-        response?.data?.sessions || USER_AVERAGE_SESSIONS[0].sessions
+        response?.data?.sessions || USER_AVERAGE_SESSIONS[1].sessions
       );
     }
 
     async function fetchUserPerformance() {
-      const response = await getUserPerformance(12);
-      setUserPerformance(response || USER_PERFORMANCE[0]);
+      const response = await getUserPerformance(18);
+      setUserPerformance(response?.data || USER_PERFORMANCE[1]);
     }
   }, []);
 
@@ -78,7 +78,7 @@ export default function Dashboard() {
 
               <RadarGraph data={userPerformance} />
 
-              <PieGraph />
+              <PieGraph data={userData} />
             </div>
           </article>
 

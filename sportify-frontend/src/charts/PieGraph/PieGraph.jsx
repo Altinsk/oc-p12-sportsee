@@ -1,10 +1,5 @@
-import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector, ResponsiveContainer } from "recharts";
-
-const data = [
-  { name: "12% de votre", value: 12 },
-  { name: "", value: 100 },
-];
+import React, { useState } from "react";
+import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from "recharts";
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -15,11 +10,8 @@ const renderActiveShape = (props) => {
     innerRadius,
     outerRadius,
     startAngle,
-    endAngle,
     fill,
     payload,
-    percent,
-    value,
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
@@ -29,14 +21,31 @@ const renderActiveShape = (props) => {
   const my = cy + (outerRadius + 30) * sin;
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
-  const textAnchor = cos >= 0 ? "start" : "end";
-
+  const { value } = payload;
+  const endAngle = (value / 100) * 360;
   return (
     <g>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>
-        {payload.name}
+      <text
+        x={cx}
+        y={cy - 20}
+        dy={8}
+        textAnchor="middle"
+        style={{ fontSize: 25 }}
+      >
+        {value+ "%"}
       </text>
-
+      <text x={cx} y={cy} dy={8} textAnchor="middle" style={{ fontSize: 15 }}>
+        {"de votre"}
+      </text>
+      <text
+        x={cx}
+        y={cy + 12}
+        dy={10}
+        textAnchor="middle"
+        style={{ fontSize: 15 }}
+      >
+        {"objectif"}
+      </text>
       <Sector
         cx={cx}
         cy={cy}
@@ -46,69 +55,74 @@ const renderActiveShape = (props) => {
         endAngle={endAngle}
         fill={fill}
       />
-      <Sector
-        cx={cx}
-        cy={cy}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        innerRadius={outerRadius + 6}
-        outerRadius={outerRadius + 10}
-        fill={fill}
-      />
-      <path
-        d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`}
-        stroke={fill}
-        fill="none"
-      />
-      <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none" />
-      <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
-        y={ey}
-        textAnchor={textAnchor}
-        fill="#333"
-      >{`PV ${value}`}</text>
-      <text
-        x={ex + (cos >= 0 ? 1 : -1) * 12}
-        y={ey}
-        dy={18}
-        textAnchor={textAnchor}
-        fill="#999"
-      >
-        {`(Rate ${(percent * 100).toFixed(2)}%)`}
-      </text>
+      <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} fill="none" />
     </g>
   );
 };
 
-export default class PieGraph extends PureComponent {
-  state = {
-    activeIndex: 0,
-  };
+const COLORS = ["red", "white"];
 
-  onPieEnter = (_, index) => {
-    this.setState({
-      activeIndex: index,
-    });
-  };
+export default function PieGraph(props) {
+  const [activeIndex] = useState(0);
+  const { data: userData } = { ...props };
+  const { todayScore, score } = { ...userData };
 
-  render() {
-    return (
+  const finalScore = todayScore || score || 0;
+  const value = finalScore * 100;
+
+  const data = [
+    { name: "12% de votre", value },
+    { name: "", value: 100 - value },
+  ];
+
+  console.log(userData);
+  console.log(todayScore);
+  console.log(data);
+
+  return (
+    <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          marginRight: 80,
+          marginLeft: 40,
+          marginTop: 20,
+        }}
+      >
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "auto auto auto",
+            flex: 1,
+          }}
+        >
+          <div>Score</div>
+        </div>
+      </div>
+
       <ResponsiveContainer width="100%" height={250}>
         <PieChart>
           <Pie
-            activeIndex={this.state.activeIndex}
+            activeIndex={activeIndex}
             activeShape={renderActiveShape}
             data={data}
             cx="50%"
-            cy="50%"
+            cy="35%"
             innerRadius={60}
             outerRadius={80}
-            fill="red"
+            fill="white"
             dataKey="value"
-            //onMouseEnter={this.onPieEnter}
-          />
+          >
+            {data.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
         </PieChart>
       </ResponsiveContainer>
-    );
-  }
+    </div>
+  );
 }

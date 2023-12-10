@@ -1,6 +1,5 @@
 import React from "react";
 import "./Sidebar.css";
-import IconYoga from "../../icons/IconYoga";
 import Icon1 from "../../icons/png-Icons/icon (1).png";
 import Icon2 from "../../icons/png-Icons/icon (2).png";
 import Icon3 from "../../icons/png-Icons/icon (3).png";

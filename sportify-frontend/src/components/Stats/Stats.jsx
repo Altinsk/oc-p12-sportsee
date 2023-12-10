@@ -2,8 +2,8 @@ import IconFire from "../../icons/IconFire";
 import proteinsPic from "../../icons/png-Icons/protein-icon.png";
 import carbsIPic from "../../icons/png-Icons/carbs-icon.png";
 import fatPic from "../../icons/png-Icons/fat-icon.png";
-import caloriesPic from "../../icons/png-Icons/calories-icon.png";
-import caloriesIcon from "../../icons/calories-icon";
+import caloriePic from "../../icons/png-Icons/calories-icon.png";
+
 import "./Stats.css";
 
 export default function Stats(props) {
@@ -13,9 +13,7 @@ export default function Stats(props) {
     <>
       <article className="dashboard__sidemenu">
         <div className="flex">
-          <div className="bg-pink">
-            <IconFire />
-          </div>
+          <img src={caloriePic} style={{ width: "4rem" }} alt="carbsIPic" />
           <div className="flex-col">
             <h4>{userData?.keyData?.calorieCount + " (g)"} </h4>
             <p>calories</p>

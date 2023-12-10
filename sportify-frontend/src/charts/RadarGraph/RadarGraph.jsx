@@ -7,34 +7,17 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  {
-    subject: "Cardio",
-    A: 10,
-  },
-  {
-    subject: "Intesite",
-    A: 98,
-  },
-  {
-    subject: "Vitesse",
-    A: 86,
-  },
-  {
-    subject: "Force",
-    A: 99,
-  },
-  {
-    subject: "Energy",
-    A: 85,
-  },
-  {
-    subject: "Endurance",
-    A: 65,
-  },
-];
-
 export default function RadarGraph(props) {
+  const { data: userPerformance } = { ...props };
+  console.log(userPerformance)
+  const data =
+    userPerformance?.data?.map((iterator) => {
+      return {
+        ...iterator,
+        kind: userPerformance?.kind[iterator?.kind] || "",
+      };
+    }) || [];
+
   return (
     <ResponsiveContainer width="100%" height={250}>
       <RadarChart
@@ -45,11 +28,11 @@ export default function RadarGraph(props) {
         style={{ backgroundColor: "#282d30" }}
       >
         <PolarGrid />
-        <PolarAngleAxis dataKey="subject" />
-        <PolarRadiusAxis />
+        <PolarAngleAxis dataKey="kind" />
+       
         <Radar
           name="Mike"
-          dataKey="A"
+          dataKey="value"
           stroke="red"
           fill="red"
           fillOpacity={0.6}
