@@ -12,7 +12,7 @@
 .wrapper article {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .disc > h1 {

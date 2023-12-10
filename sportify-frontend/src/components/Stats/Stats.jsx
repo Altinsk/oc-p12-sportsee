@@ -2,6 +2,7 @@ import IconFire from "../../icons/IconFire";
 import proteinsPic from "../../icons/png-Icons/protein-icon.png";
 import carbsIPic from "../../icons/png-Icons/carbs-icon.png";
 import fatPic from "../../icons/png-Icons/fat-icon.png";
+import "./Stats.css";
 
 export default function Stats(props) {
   const { userData } = { ...props };
