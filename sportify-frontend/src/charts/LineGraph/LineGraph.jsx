@@ -25,7 +25,25 @@ export default function LineGraph(props) {
     data?.map((item) => ({ ...item, label: daysObject[item?.day] || "" })) ||
     [];
 
-  console.log("data", data);
+  const CustomTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div
+          className="custom-tooltip"
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: 10,
+            fontSize: 10,
+          }}
+        >
+          <p>{`${payload[0].value}min`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
 
   return (
     <>
@@ -63,19 +81,14 @@ export default function LineGraph(props) {
             align="center"
             iconSize={0}
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} cursor={false} />
 
           <Line
             type="natural"
             name="Durée moyenne des sessions"
             dataKey="sessionLength"
             stroke="white"
-            dot={({ cx, cy, stroke, payload }) => {
-              if (payload.label === "V") {
-                return <circle cx={cx} cy={cy} r={6} fill={stroke} />;
-              }
-              return null;
-            }}
+            dot={false}
           />
         </LineChart>
       </ResponsiveContainer>
