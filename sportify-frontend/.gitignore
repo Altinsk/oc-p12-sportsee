@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # folders
-oc-p12-sportsee-be/
+/oc-p12-sportsee-be
 
 # dependencies
 /node_modules
