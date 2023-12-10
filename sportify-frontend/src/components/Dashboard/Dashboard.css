@@ -47,10 +47,11 @@
 }
 
 .flex-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  display: flex;
+  /* grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   padding: 10px;
-  column-gap: 0.7rem;
+  column-gap: 0.7rem;*/
+  gap: 30px;
 }
 
 .flex-item {
