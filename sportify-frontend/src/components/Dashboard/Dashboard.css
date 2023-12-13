@@ -48,10 +48,8 @@
 
 .flex-container {
   margin-top: 70px;
-  display: flex;
-  /* grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-  padding: 10px;
-  column-gap: 0.7rem;*/
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 30px;
 }
 

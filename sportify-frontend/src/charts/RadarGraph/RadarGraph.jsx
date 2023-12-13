@@ -3,7 +3,6 @@ import {
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
-  PolarRadiusAxis,
   ResponsiveContainer,
 } from "recharts";
 
@@ -22,12 +21,15 @@ export default function RadarGraph(props) {
       <RadarChart
         cx="50%"
         cy="50%"
-        outerRadius="80%"
+        outerRadius="70%"
         data={data}
         style={{ backgroundColor: "#282d30" }}
       >
         <PolarGrid />
-        <PolarAngleAxis dataKey="kind" />
+        <PolarAngleAxis
+          dataKey="kind"
+          style={{ color: "#ffffff", fontSize: "10" }}
+        />
 
         <Radar
           name="Mike"
