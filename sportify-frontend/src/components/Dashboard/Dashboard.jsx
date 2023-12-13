@@ -6,7 +6,7 @@ import RadarGraph from "../../charts/RadarGraph/RadarGraph";
 import PieGraph from "../../charts/PieGraph/PieGraph";
 import Stats from "../Stats/Stats";
 
-import {
+/* import {
   getUserActivity,
   getUserAverageSessions,
   getUserPerformance,
@@ -17,43 +17,16 @@ import {
   USER_AVERAGE_SESSIONS,
   USER_PERFORMANCE,
   USER_MAIN_DATA,
-} from "../../constant/data";
+} from "../../constant/data"; */
+
+import {
+  userData,
+  activity,
+  averageSessions,
+  userPerformance,
+} from "../../service/data-provider";
 
 export default function Dashboard() {
-  const [activity, setActivity] = useState([]);
-  const [averageSessions, setAverageSessions] = useState([]);
-  const [userPerformance, setUserPerformance] = useState(null);
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    fetchUserData();
-    fetchActivity();
-    fetchAverageSessions();
-    fetchUserPerformance();
-
-    async function fetchUserData() {
-      const response = await getUserById(18);
-      setUserData(response?.data || USER_MAIN_DATA[1]);
-    }
-
-    async function fetchActivity() {
-      const response = await getUserActivity(18);
-      setActivity(response?.data?.sessions || USER_ACTIVITY[1].sessions);
-    }
-
-    async function fetchAverageSessions() {
-      const response = await getUserAverageSessions(18);
-      setAverageSessions(
-        response?.data?.sessions || USER_AVERAGE_SESSIONS[1].sessions
-      );
-    }
-
-    async function fetchUserPerformance() {
-      const response = await getUserPerformance(18);
-      setUserPerformance(response?.data || USER_PERFORMANCE[1]);
-    }
-  }, []);
-
   return (
     <div className="dashboard">
       <div className="wrapper">

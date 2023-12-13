@@ -69,7 +69,7 @@ export default function LineGraph(props) {
           />
           <XAxis
             dataKey="label"
-            height={60}
+            height={55}
             tick={<CustomizedAxisTick />}
             axisLine={false}
             tickLine={false}
@@ -81,7 +81,11 @@ export default function LineGraph(props) {
             align="center"
             iconSize={0}
           />
-          <Tooltip content={<CustomTooltip />} cursor={false} />
+          <Tooltip
+            content={<CustomTooltip style={{ backgroundColor: "black" }} />}
+            cursor={false}
+            style={{ backgroundColor: "black" }}
+          />
 
           <Line
             type="natural"
