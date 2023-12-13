@@ -9,7 +9,6 @@ import {
 
 export default function RadarGraph(props) {
   const { data: userPerformance } = { ...props };
-  console.log(userPerformance)
   const data =
     userPerformance?.data?.map((iterator) => {
       return {
@@ -29,7 +28,7 @@ export default function RadarGraph(props) {
       >
         <PolarGrid />
         <PolarAngleAxis dataKey="kind" />
-       
+
         <Radar
           name="Mike"
           dataKey="value"

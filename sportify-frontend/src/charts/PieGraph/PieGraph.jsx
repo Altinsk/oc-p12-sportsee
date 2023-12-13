@@ -3,16 +3,7 @@ import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from "recharts";
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
-  const {
-    cx,
-    cy,
-    midAngle,
-    innerRadius,
-    outerRadius,
-    startAngle,
-    fill,
-    payload,
-  } = props;
+  const { cx, cy, midAngle, innerRadius, outerRadius, fill, payload } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
   const sx = cx + (outerRadius + 10) * cos;
@@ -22,7 +13,8 @@ const renderActiveShape = (props) => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const { value } = payload;
-  const endAngle = (value / 100) * 360;
+  const startAngle = -30;
+  const endAngle = 210;
   return (
     <g>
       <text
@@ -32,7 +24,7 @@ const renderActiveShape = (props) => {
         textAnchor="middle"
         style={{ fontSize: 25 }}
       >
-        {value+ "%"}
+        {value + "%"}
       </text>
       <text x={cx} y={cy} dy={8} textAnchor="middle" style={{ fontSize: 15 }}>
         {"de votre"}
@@ -75,10 +67,6 @@ export default function PieGraph(props) {
     { name: "", value: 100 - value },
   ];
 
-  console.log(userData);
-  console.log(todayScore);
-  console.log(data);
-
   return (
     <div>
       <div
@@ -104,6 +92,14 @@ export default function PieGraph(props) {
       <ResponsiveContainer width="100%" height={250}>
         <PieChart>
           <Pie
+            data={data}
+            cx="50%"
+            cy="35%"
+            innerRadius={0}
+            outerRadius={62}
+            fill="white"
+          />
+          <Pie
             activeIndex={activeIndex}
             activeShape={renderActiveShape}
             data={data}
@@ -113,6 +109,7 @@ export default function PieGraph(props) {
             outerRadius={80}
             fill="white"
             dataKey="value"
+            startAngle={-260}
           >
             {data.map((entry, index) => (
               <Cell

@@ -15,7 +15,7 @@ export default function Stats(props) {
         <div className="flex">
           <img src={caloriePic} style={{ width: "4rem" }} alt="carbsIPic" />
           <div className="flex-col">
-            <h4>{userData?.keyData?.calorieCount + " (g)"} </h4>
+            <h4>{userData?.keyData?.calorieCount + "kCal"} </h4>
             <p>calories</p>
           </div>
         </div>
@@ -24,7 +24,7 @@ export default function Stats(props) {
           <img src={proteinsPic} style={{ width: "4rem" }} alt="proteinsPic" />
 
           <div className="flex-col">
-            <h4>{userData?.keyData?.proteinCount + " (g)"} </h4>
+            <h4>{userData?.keyData?.proteinCount + "g"} </h4>
             <p>proteins</p>
           </div>
         </div>

@@ -99,8 +99,6 @@ export default function LineGraph(props) {
 function CustomizedAxisTick(props) {
   const { x, y, payload } = props;
 
-  console.log("payload", payload);
-
   return (
     <>
       <g transform={`translate(${x},${y})`}>
