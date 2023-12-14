@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { PieChart, Pie, Sector, ResponsiveContainer, Cell } from "recharts";
+import styles from "./PieGraph.css";
+import {
+  PieChart,
+  Pie,
+  Sector,
+  ResponsiveContainer,
+  Cell,
+  Label,
+} from "recharts";
 
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
@@ -68,7 +76,9 @@ export default function PieGraph(props) {
   ];
 
   return (
-    <div>
+    <div
+      style={{ backgroundColor: "#fbfbfb", maxHeight: 250, borderRadius: 10 }}
+    >
       <div
         style={{
           display: "flex",
@@ -85,7 +95,7 @@ export default function PieGraph(props) {
             flex: 1,
           }}
         >
-          <div>Score</div>
+          {/* <p>Score</p> */}
         </div>
       </div>
 
@@ -94,9 +104,9 @@ export default function PieGraph(props) {
           <Pie
             data={data}
             cx="50%"
-            cy="35%"
+            cy="50%"
             innerRadius={0}
-            outerRadius={62}
+            outerRadius={80}
             fill="white"
           />
           <Pie
@@ -104,13 +114,23 @@ export default function PieGraph(props) {
             activeShape={renderActiveShape}
             data={data}
             cx="50%"
-            cy="35%"
+            cy="50%"
             innerRadius={60}
             outerRadius={80}
             fill="white"
             dataKey="value"
             startAngle={-260}
           >
+            {/* <Label
+              className="test"
+              style={{
+                backgroundColor: "red",
+                paddingLeft: 100,
+                fontSize: 10,
+              }}
+            >
+              Score
+            </Label> */}
             {data.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}
