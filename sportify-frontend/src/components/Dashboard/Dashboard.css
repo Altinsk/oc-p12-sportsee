@@ -12,7 +12,7 @@
 .wrapper article {
   display: grid;
   /* flex-direction: column; */
-  gap: 56px;
+  gap: 20px;
 }
 
 .disc > h1 {
@@ -44,6 +44,8 @@
 
 .graph1 {
   width: 100%;
+  background-color: #fbfbfb;
+  height: 300px;
 }
 
 .flex-container {

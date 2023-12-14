@@ -19,7 +19,6 @@ const daysObject = {
 };
 
 export default function LineGraph(props) {
-  // HINT:
   let { data } = { ...props };
   data =
     data?.map((item) => ({ ...item, label: daysObject[item?.day] || "" })) ||
@@ -31,9 +30,9 @@ export default function LineGraph(props) {
         <div
           className="custom-tooltip"
           style={{
-            backgroundColor: "red",
-            color: "white",
-            padding: 10,
+            backgroundColor: "white",
+            color: "black",
+            padding: 2,
             fontSize: 10,
           }}
         >
@@ -82,7 +81,7 @@ export default function LineGraph(props) {
             iconSize={0}
           />
           <Tooltip
-            content={<CustomTooltip style={{ backgroundColor: "black" }} />}
+            content={<CustomTooltip />}
             cursor={false}
             style={{ backgroundColor: "black" }}
           />
