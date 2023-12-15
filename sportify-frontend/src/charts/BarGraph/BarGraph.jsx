@@ -57,8 +57,8 @@ export default function BarGraph(props) {
         style={{
           display: "flex",
           flexDirection: "row",
-          marginRight: 80,
-          marginLeft: 40,
+          marginRight: 20,
+          marginLeft: 20,
         }}
       >
         <div
@@ -76,7 +76,7 @@ export default function BarGraph(props) {
         <div style={{ textAlign: "center" }}> Calories brulée (kCal)</div>
       </div>
 
-      <ResponsiveContainer width="100%" height={250}>
+      <ResponsiveContainer width="100%" height={250} style={{ paddingTop: 45 }}>
         <BarChart
           data={data}
           margin={{
@@ -94,7 +94,7 @@ export default function BarGraph(props) {
             orientation="right"
             axisLine={false}
             tickLine={false}
-            tickMargin={50}
+            tickMargin={30}
           />
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="calories" fill="black" name="" radius={[5, 5, 0, 0]} />

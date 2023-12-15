@@ -56,6 +56,7 @@ export default function LineGraph(props) {
             left: 40,
             bottom: 10,
           }}
+          opacity={0.6}
         >
           <rect
             x={190}
@@ -79,6 +80,7 @@ export default function LineGraph(props) {
             verticalAlign="top"
             align="left"
             iconSize={0}
+            color="#faf9f6"
           />
           <Tooltip
             content={<CustomTooltip />}
@@ -89,9 +91,9 @@ export default function LineGraph(props) {
           <Line
             type="natural"
             name="Durée moyenne des sessions"
+            whiteSpace="break-spaces"
             dataKey="sessionLength"
-            stroke="white"
-            opacity={0.5}
+            stroke="#faf9f6"
             dot={false}
           />
         </LineChart>
