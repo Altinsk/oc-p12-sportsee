@@ -4,4 +4,6 @@
 
 .flex-col p {
   margin: 0;
+  color: "#74798C";
+  opacity: 0.5;
 }
