@@ -34,15 +34,21 @@ const renderActiveShape = (props) => {
       >
         {value + "%"}
       </text>
-      <text x={cx} y={cy} dy={8} textAnchor="middle" style={{ fontSize: 15 }}>
+      <text
+        x={cx}
+        y={cy}
+        dy={16}
+        textAnchor="middle"
+        style={{ fontSize: 15, color: "#74798C", opacity: 0.5 }}
+      >
         {"de votre"}
       </text>
       <text
         x={cx}
         y={cy + 12}
-        dy={10}
+        dy={26}
         textAnchor="middle"
-        style={{ fontSize: 15 }}
+        style={{ fontSize: 15, color: "#74798C", opacity: 0.5 }}
       >
         {"objectif"}
       </text>
@@ -129,7 +135,8 @@ export default function PieGraph(props) {
                 fontWeight: 700,
                 fontSize: 16,
                 lineHeight: 26,
-                fill: "#282d30",
+                fill: "#20253A",
+                fontWeight: "light",
               }}
             >
               Score

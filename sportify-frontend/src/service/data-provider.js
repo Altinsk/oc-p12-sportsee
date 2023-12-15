@@ -15,7 +15,7 @@ import { UserData } from "../models/userData";
 import { UserPerformance } from "../models/userPerformance";
 
 const mockedData = false;
-const userIdAPI = 12;
+const userIdAPI = 18;
 const userIdMocked = 0;
 
 export const userData = await fetchUserData();
