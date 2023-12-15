@@ -85,7 +85,7 @@ export default function BarGraph(props) {
             left: 20,
             bottom: 5,
           }}
-          barGap={12}
+          barGap={10}
           barSize={12}
         >
           <CartesianGrid vertical={false} strokeDasharray="3 3" />
