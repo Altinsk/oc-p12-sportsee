@@ -11,6 +11,9 @@ import {
   USER_MAIN_DATA,
 } from "../constant/data";
 
+import { UserData } from "../models/userData";
+import { UserPerformance } from "../models/userPerformance";
+
 const mockedData = false;
 const userIdAPI = 12;
 const userIdMocked = 0;
@@ -21,9 +24,11 @@ export const averageSessions = await fetchAverageSessions();
 export const userPerformance = await fetchUserPerformance();
 
 async function fetchUserData() {
-  if (mockedData) return USER_MAIN_DATA[userIdMocked];
+  let data = [];
+  if (mockedData) data = USER_MAIN_DATA[userIdMocked];
   const response = await getUserById(userIdAPI);
-  return response?.data || USER_MAIN_DATA[userIdMocked];
+  data = response?.data || USER_MAIN_DATA[userIdMocked];
+  return new UserData(data).data;
 }
 
 async function fetchActivity() {
@@ -41,7 +46,9 @@ async function fetchAverageSessions() {
 }
 
 async function fetchUserPerformance() {
-  if (mockedData) return USER_PERFORMANCE[userIdMocked];
+  let data = [];
+  if (mockedData) data = USER_PERFORMANCE[userIdMocked];
   const response = await getUserPerformance(userIdAPI);
-  return response?.data || USER_PERFORMANCE[userIdMocked];
+  data = response?.data || USER_PERFORMANCE[userIdMocked];
+  return new UserPerformance(data).data;
 }

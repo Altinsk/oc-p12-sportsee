@@ -74,10 +74,10 @@ export default function LineGraph(props) {
             tickLine={false}
           />
           <Legend
-            wrapperStyle={{ top: 10, right: "20%" }}
+            wrapperStyle={{ top: 10, right: "20%", whiteSpace: "break-spaces" }}
             layout="horizontal"
             verticalAlign="top"
-            align="center"
+            align="left"
             iconSize={0}
           />
           <Tooltip
@@ -91,6 +91,7 @@ export default function LineGraph(props) {
             name="Durée moyenne des sessions"
             dataKey="sessionLength"
             stroke="white"
+            opacity={0.5}
             dot={false}
           />
         </LineChart>

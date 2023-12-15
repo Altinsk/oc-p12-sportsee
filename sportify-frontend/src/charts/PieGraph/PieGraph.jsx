@@ -80,13 +80,15 @@ export default function PieGraph(props) {
       style={{ backgroundColor: "#fbfbfb", maxHeight: 250, borderRadius: 10 }}
     >
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          marginRight: 80,
-          marginLeft: 40,
-          marginTop: 20,
-        }}
+        style={
+          {
+            // display: "flex",
+            // flexDirection: "row",
+            // marginRight: 80,
+            // marginLeft: 40,
+            // marginTop: 20,
+          }
+        }
       >
         <div
           style={{
@@ -94,9 +96,7 @@ export default function PieGraph(props) {
             gridTemplateColumns: "auto auto auto",
             flex: 1,
           }}
-        >
-          {/* <p>Score</p> */}
-        </div>
+        ></div>
       </div>
 
       <ResponsiveContainer width="100%" height={250}>
@@ -121,16 +121,19 @@ export default function PieGraph(props) {
             dataKey="value"
             startAngle={-260}
           >
-            {/* <Label
-              className="test"
+            <Label
+              position="center"
+              dy={-90}
+              dx={-90}
               style={{
-                backgroundColor: "red",
-                paddingLeft: 100,
-                fontSize: 10,
+                fontWeight: 700,
+                fontSize: 16,
+                lineHeight: 26,
+                fill: "#282d30",
               }}
             >
               Score
-            </Label> */}
+            </Label>
             {data.map((entry, index) => (
               <Cell
                 key={`cell-${index}`}

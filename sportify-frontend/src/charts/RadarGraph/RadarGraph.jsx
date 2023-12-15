@@ -22,13 +22,14 @@ export default function RadarGraph(props) {
         cx="50%"
         cy="50%"
         outerRadius="70%"
-        data={data}
-        style={{ backgroundColor: "#282d30" }}
+        data={data.reverse()}
+        style={{ backgroundColor: "#282d30", color: "green" }}
       >
-        <PolarGrid />
+        <PolarGrid radialLines={false} />
         <PolarAngleAxis
           dataKey="kind"
-          style={{ color: "#ffffff", fontSize: "10" }}
+          style={{ color: "#000000", fontSize: "11" }}
+          tick={{ fill: "#ffffff", fontSize: 20 }}
         />
 
         <Radar
