@@ -6,6 +6,11 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+/**
+ * Radar Chart component for displaying user's performance
+ * @param {object} props.userPerformance - The user's performance data
+ * @returns {JSX.Element} The rendered component
+ */
 export default function RadarGraph(props) {
   const { data: userPerformance } = { ...props };
   const data =

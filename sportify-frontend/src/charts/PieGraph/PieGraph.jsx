@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styles from "./PieGraph.css";
 import {
   PieChart,
   Pie,
@@ -68,6 +67,11 @@ const renderActiveShape = (props) => {
 
 const COLORS = ["red", "white"];
 
+/**
+ * Pie Chart component for displaying user's score
+ * @param {number} props.score - The user's score
+ * @returns {JSX.Element} The rendered component
+ */
 export default function PieGraph(props) {
   const [activeIndex] = useState(0);
   const { data: userData } = { ...props };
@@ -123,11 +127,10 @@ export default function PieGraph(props) {
               dy={-90}
               dx={-90}
               style={{
-                fontWeight: 700,
+                fontWeight: 350,
                 fontSize: 16,
                 lineHeight: 26,
                 fill: "#20253A",
-                fontWeight: "light",
               }}
             >
               Score

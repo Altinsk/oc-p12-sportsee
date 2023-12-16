@@ -9,6 +9,10 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+/**
+ * Customized Dot color for the chart
+ * @param {color} props.x - color dor the Dot
+ */
 function Dot({ color }) {
   return (
     <div
@@ -25,6 +29,11 @@ function Dot({ color }) {
   );
 }
 
+/**
+ * Bar Chart component for displaying user activity
+ * @param {props} - The user's activity props
+ * @returns {JSX.Element} The rendered component
+ */
 export default function BarGraph(props) {
   let { data } = { ...props };
   data =
