@@ -71,9 +71,12 @@ export default function BarGraph(props) {
           <div>Activité quotidienne</div>
         </div>
         <Dot color={"black"} />
-        <div style={{ textAlign: "center" }}> Poids (kg)</div>
+        <div style={{ textAlign: "center", color: "#74798C" }}> Poids (kg)</div>
         <Dot color={"red"} />
-        <div style={{ textAlign: "center" }}> Calories brulée (kCal)</div>
+        <div style={{ textAlign: "center", color: "#74798C" }}>
+          {" "}
+          Calories brulée (kCal)
+        </div>
       </div>
 
       <ResponsiveContainer width="100%" height={250} style={{ paddingTop: 45 }}>

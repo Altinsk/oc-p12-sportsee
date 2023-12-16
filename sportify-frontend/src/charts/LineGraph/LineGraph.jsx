@@ -3,9 +3,11 @@ import {
   LineChart,
   Line,
   XAxis,
+  YAxis,
   Tooltip,
   ResponsiveContainer,
-  Legend,
+  Dot,
+  Rectangle,
 } from "recharts";
 
 const daysObject = {
@@ -16,6 +18,26 @@ const daysObject = {
   5: "V",
   6: "S",
   7: "D",
+};
+
+const CustomDot = ({ cx, cy, index, data }) => {
+  if (index === 0 || index === data.length - 1) {
+    return null;
+  }
+  return (
+    <Dot
+      cx={cx}
+      cy={cy}
+      fill="#fff"
+      r={4}
+      stroke="#ffffff50"
+      strokeWidth={10}
+    />
+  );
+};
+const CustomCursor = ({ points, width }) => {
+  const { x } = points[0];
+  return <Rectangle fill="#00000010" x={x} width={width} height={260} />;
 };
 
 export default function LineGraph(props) {
@@ -58,15 +80,19 @@ export default function LineGraph(props) {
           }}
           opacity={0.6}
         >
-          <rect
-            x={190}
-            y={0}
-            width="40%"
-            height="100%"
-            fill="black"
-            opacity={0.3}
-            style={{ position: "relative", zIndex: -1 }}
-          />
+          <text
+            x={30}
+            y={30}
+            fill="#faf9f6"
+            textAnchor="start"
+            dominantBaseline="central"
+          >
+            <tspan>Durée moyenne des</tspan>
+            <tspan x={30} dy={20}>
+              sessions
+            </tspan>
+          </text>
+
           <XAxis
             dataKey="label"
             height={55}
@@ -74,29 +100,34 @@ export default function LineGraph(props) {
             axisLine={false}
             tickLine={false}
           />
-          <Legend
-            wrapperStyle={{ top: 10, right: "20%", whiteSpace: "break-spaces" }}
-            layout="horizontal"
-            verticalAlign="top"
-            align="left"
-            iconSize={0}
-            color="#faf9f6"
+          <YAxis
+            dataKey="sessionLength"
+            type="number"
+            domain={["dataMin", "dataMax + 60"]}
+            hide
           />
           <Tooltip
             content={<CustomTooltip />}
-            cursor={false}
+            cursor={<CustomCursor />}
             style={{ backgroundColor: "black" }}
           />
 
           <Line
             type="natural"
-            name="Durée moyenne des sessions"
             whiteSpace="break-spaces"
             dataKey="sessionLength"
             stroke="#faf9f6"
             dot={false}
+            strokeWidth={1}
+            activeDot={<CustomDot data={data} />}
           />
         </LineChart>
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#ffffff40" />
+            <stop offset="100%" stopColor="#fff" />
+          </linearGradient>
+        </defs>
       </ResponsiveContainer>
     </>
   );
