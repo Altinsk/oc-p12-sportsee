@@ -2,6 +2,10 @@ import React from "react";
 import "./Header.css";
 import logo from "../../icons/png-Icons/logo (1).png";
 
+/**
+ *	Header
+ * 	@returns {JSX.Element} Header element
+ */
 const Header = () => {
   return (
     <header className="header">

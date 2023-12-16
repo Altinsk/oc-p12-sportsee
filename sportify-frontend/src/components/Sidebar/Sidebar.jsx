@@ -5,6 +5,10 @@ import Icon2 from "../../icons/png-Icons/icon (2).png";
 import Icon3 from "../../icons/png-Icons/icon (3).png";
 import yogaPic from "../../icons/png-Icons/iconyoga.png";
 
+/**
+ *	SideBar(Drawer)
+ * 	@returns {JSX.Element} SideBar (Drawer) element
+ */
 const Drawer = () => {
   return (
     <section className="sidebar">
