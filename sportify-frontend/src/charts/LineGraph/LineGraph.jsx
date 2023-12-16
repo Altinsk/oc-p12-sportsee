@@ -129,7 +129,7 @@ export default function LineGraph(props) {
             type="natural"
             dataKey="sessionLength"
             stroke="#faf9f6"
-            // stroke="url(#gradient)"
+            fill="url(#gradient)"
             dot={false}
             strokeWidth={1}
             activeDot={<CustomDot data={data} />}
