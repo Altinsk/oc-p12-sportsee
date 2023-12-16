@@ -62,9 +62,22 @@ export default function LineGraph(props) {
         </div>
       );
     }
-
     return null;
   };
+
+  function CustomizedAxisTick(props) {
+    const { x, y, payload } = props;
+
+    return (
+      <>
+        <g transform={`translate(${x},${y})`}>
+          <text x={0} y={0} dy={38} textAnchor="end" fill="white">
+            {payload.value}
+          </text>
+        </g>
+      </>
+    );
+  }
 
   return (
     <>
@@ -114,9 +127,9 @@ export default function LineGraph(props) {
 
           <Line
             type="natural"
-            whiteSpace="break-spaces"
             dataKey="sessionLength"
             stroke="#faf9f6"
+            // stroke="url(#gradient)"
             dot={false}
             strokeWidth={1}
             activeDot={<CustomDot data={data} />}
@@ -129,20 +142,6 @@ export default function LineGraph(props) {
           </linearGradient>
         </defs>
       </ResponsiveContainer>
-    </>
-  );
-}
-
-function CustomizedAxisTick(props) {
-  const { x, y, payload } = props;
-
-  return (
-    <>
-      <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={38} textAnchor="end" fill="white">
-          {payload.value}
-        </text>
-      </g>
     </>
   );
 }

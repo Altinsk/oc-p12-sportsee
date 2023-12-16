@@ -85,17 +85,7 @@ export default function PieGraph(props) {
     <div
       style={{ backgroundColor: "#fbfbfb", maxHeight: 250, borderRadius: 10 }}
     >
-      <div
-        style={
-          {
-            // display: "flex",
-            // flexDirection: "row",
-            // marginRight: 80,
-            // marginLeft: 40,
-            // marginTop: 20,
-          }
-        }
-      >
+      <div>
         <div
           style={{
             display: "grid",
@@ -121,11 +111,12 @@ export default function PieGraph(props) {
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={60}
+            innerRadius={70}
             outerRadius={80}
             fill="white"
             dataKey="value"
             startAngle={-260}
+            cornerRadius={-10}
           >
             <Label
               position="center"
