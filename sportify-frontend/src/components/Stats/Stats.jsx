@@ -4,7 +4,6 @@ import fatPic from "../../icons/png-Icons/fat-icon.png";
 import caloriePic from "../../icons/png-Icons/calories-icon.png";
 import "./Stats.css";
 import PropTypes from "prop-types";
-import { number } from "prop-types";
 
 /**
  *
@@ -55,7 +54,7 @@ export default function Stats(props) {
   );
 }
 
-Stats.prototype = {
+Stats.propTypes = {
   calorieCount: PropTypes.number,
   proteinCount: PropTypes.number,
   carbohydrateCount: PropTypes.number,

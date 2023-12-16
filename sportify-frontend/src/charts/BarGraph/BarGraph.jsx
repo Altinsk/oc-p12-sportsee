@@ -8,6 +8,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * Customized Dot color for the chart
@@ -116,3 +117,7 @@ export default function BarGraph(props) {
     </>
   );
 }
+
+BarGraph.propTypes = {
+  data: PropTypes.object,
+};

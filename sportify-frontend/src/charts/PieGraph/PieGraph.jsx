@@ -7,6 +7,7 @@ import {
   Cell,
   Label,
 } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * Render active shape for the chart
@@ -151,3 +152,7 @@ export default function PieGraph(props) {
     </div>
   );
 }
+
+PieGraph.propTypes = {
+  data: PropTypes.object,
+};

@@ -5,6 +5,7 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * Radar Chart component for displaying user's performance
@@ -48,3 +49,7 @@ export default function RadarGraph(props) {
     </ResponsiveContainer>
   );
 }
+
+RadarGraph.propTypes = {
+  data: PropTypes.object,
+};

@@ -9,6 +9,7 @@ import {
   Dot,
   Rectangle,
 } from "recharts";
+import PropTypes from "prop-types";
 
 const daysObject = {
   1: "L",
@@ -172,3 +173,7 @@ export default function LineGraph(props) {
     </>
   );
 }
+
+LineGraph.propTypes = {
+  data: PropTypes.object,
+};
