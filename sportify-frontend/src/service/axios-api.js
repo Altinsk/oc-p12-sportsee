@@ -5,10 +5,19 @@ const failureResponse = {
   data: null,
 };
 
+/**
+ * UserService
+ * @extends {Service|MockedService}
+ */
 const instance = axios.create({
   baseURL: "http://localhost:4000",
 });
 
+/**
+ * call to getUserData()
+ * @param {number} userId id of the user
+ * @returns user datas
+ */
 export async function getUserById(id) {
   try {
     const response = await instance.get("/user/" + id);
@@ -18,6 +27,11 @@ export async function getUserById(id) {
   }
 }
 
+/**
+ * call to getUserActivity()
+ * @param {number} userId  id of the user
+ * @returns user activities datas
+ */
 export async function getUserActivity(id) {
   try {
     const response = await instance.get("/user/" + id + "/activity");
@@ -27,6 +41,11 @@ export async function getUserActivity(id) {
   }
 }
 
+/**
+ * call to getUserAverageSessions()
+ * @param {number} userId id of the user
+ * @returns user average sessions datas
+ */
 export async function getUserAverageSessions(id) {
   try {
     const response = await instance.get("/user/" + id + "/average-sessions");
@@ -36,6 +55,11 @@ export async function getUserAverageSessions(id) {
   }
 }
 
+/**
+ * call to getUserPerformance()
+ * @param {number} userId id of the user
+ * @returns user performances datas
+ */
 export async function getUserPerformance(id) {
   try {
     const response = await instance.get("/user/" + id + "/performance");

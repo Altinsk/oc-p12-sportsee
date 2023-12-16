@@ -1,5 +1,9 @@
 import { translations } from "./translations";
 
+/**
+ * formatting data
+ * @returns formatted objects for user performance
+ */
 export class UserPerformance {
   constructor(data) {
     this.data = this.translate(data);

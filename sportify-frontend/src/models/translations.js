@@ -1,3 +1,7 @@
+/**
+ * Translation
+ * @returns translated object
+ */
 export const translations = {
   calories: "Calories",
   proteins: "Proteins",

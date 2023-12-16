@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import BarGraph from "../../charts/BarGraph/BarGraph";
 import LineGraph from "../../charts/LineGraph/LineGraph";
@@ -6,26 +5,15 @@ import RadarGraph from "../../charts/RadarGraph/RadarGraph";
 import PieGraph from "../../charts/PieGraph/PieGraph";
 import Stats from "../Stats/Stats";
 
-/* import {
-  getUserActivity,
-  getUserAverageSessions,
-  getUserPerformance,
-  getUserById,
-} from "../../service/axios-api";
-import {
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-  USER_MAIN_DATA,
-} from "../../constant/data"; */
-
 import {
   userData,
   activity,
   averageSessions,
   userPerformance,
 } from "../../service/data-provider";
-
+/**
+ * @returns {JSX.Element} - Dash Board component
+ */
 export default function Dashboard() {
   return (
     <div className="dashboard">

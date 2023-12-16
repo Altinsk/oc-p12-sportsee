@@ -1,11 +1,13 @@
-import IconFire from "../../icons/IconFire";
 import proteinsPic from "../../icons/png-Icons/protein-icon.png";
 import carbsIPic from "../../icons/png-Icons/carbs-icon.png";
 import fatPic from "../../icons/png-Icons/fat-icon.png";
 import caloriePic from "../../icons/png-Icons/calories-icon.png";
-
 import "./Stats.css";
 
+/**
+ *
+ * @returns {JSX.Element} - component
+ */
 export default function Stats(props) {
   const { userData } = { ...props };
 

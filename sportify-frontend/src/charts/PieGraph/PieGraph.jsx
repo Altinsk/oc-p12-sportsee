@@ -8,6 +8,10 @@ import {
   Label,
 } from "recharts";
 
+/**
+ * Render active shape for the chart
+ * @returns {JSX.Element} The rendered component, or null for specific indices.
+ */
 const renderActiveShape = (props) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, fill, payload } = props;
