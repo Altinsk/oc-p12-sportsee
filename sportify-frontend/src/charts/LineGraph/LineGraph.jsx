@@ -163,17 +163,11 @@ export default function LineGraph(props) {
             activeDot={<CustomDot data={data} />}
           />
         </LineChart>
-        <defs>
-          <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#ffffff40" />
-            <stop offset="100%" stopColor="#fff" />
-          </linearGradient>
-        </defs>
       </ResponsiveContainer>
     </>
   );
 }
 
 LineGraph.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
 };

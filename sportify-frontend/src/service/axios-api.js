@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const failureResponse = {
-  message: "Failure: unable to call api",
+  status: "ERROR",
+  statusText: "ERROR: unable to call api",
   data: null,
 };
 
@@ -21,7 +22,7 @@ const instance = axios.create({
 export async function getUserById(id) {
   try {
     const response = await instance.get("/user/" + id);
-    return response.data;
+    return response;
   } catch (error) {
     return failureResponse;
   }
@@ -35,7 +36,7 @@ export async function getUserById(id) {
 export async function getUserActivity(id) {
   try {
     const response = await instance.get("/user/" + id + "/activity");
-    return response.data;
+    return response;
   } catch (error) {
     return failureResponse;
   }
@@ -49,7 +50,7 @@ export async function getUserActivity(id) {
 export async function getUserAverageSessions(id) {
   try {
     const response = await instance.get("/user/" + id + "/average-sessions");
-    return response.data;
+    return response;
   } catch (error) {
     return failureResponse;
   }
@@ -63,7 +64,7 @@ export async function getUserAverageSessions(id) {
 export async function getUserPerformance(id) {
   try {
     const response = await instance.get("/user/" + id + "/performance");
-    return response.data;
+    return response;
   } catch (error) {
     return failureResponse;
   }

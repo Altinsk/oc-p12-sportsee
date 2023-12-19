@@ -119,5 +119,5 @@ export default function BarGraph(props) {
 }
 
 BarGraph.propTypes = {
-  data: PropTypes.object,
+  data: PropTypes.array,
 };

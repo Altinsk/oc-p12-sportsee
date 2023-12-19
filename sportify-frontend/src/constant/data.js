@@ -1,6 +1,6 @@
 export const USER_MAIN_DATA = [
   {
-    id: 15,
+    id: 12,
     userInfos: {
       firstName: "Arnaud",
       lastName: "Legal",
@@ -15,7 +15,7 @@ export const USER_MAIN_DATA = [
     },
   },
   {
-    id: 19,
+    id: 18,
     userInfos: {
       firstName: "Carol",
       lastName: "Berdez",
@@ -33,7 +33,7 @@ export const USER_MAIN_DATA = [
 
 export const USER_ACTIVITY = [
   {
-    userId: 15,
+    userId: 12,
     sessions: [
       {
         day: "2023-04-01",
@@ -73,7 +73,7 @@ export const USER_ACTIVITY = [
     ],
   },
   {
-    userId: 19,
+    userId: 18,
     sessions: [
       {
         day: "2023-04-01",
@@ -116,7 +116,7 @@ export const USER_ACTIVITY = [
 
 export const USER_AVERAGE_SESSIONS = [
   {
-    userId: 15,
+    userId: 12,
     sessions: [
       {
         day: 1,
@@ -149,7 +149,7 @@ export const USER_AVERAGE_SESSIONS = [
     ],
   },
   {
-    userId: 19,
+    userId: 18,
     sessions: [
       {
         day: 1,
@@ -185,7 +185,7 @@ export const USER_AVERAGE_SESSIONS = [
 
 export const USER_PERFORMANCE = [
   {
-    userId: 15,
+    userId: 12,
     kind: {
       1: "cardio",
       2: "energy",
@@ -222,7 +222,7 @@ export const USER_PERFORMANCE = [
     ],
   },
   {
-    userId: 19,
+    userId: 18,
     kind: {
       1: "cardio",
       2: "energy",
