@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <div className="main">
         <button onClick={handleClick} className="button">
-          Changé état de data mocké
+          Changer état de data mocké
         </button>
         <Link to="/user/12" className="button">
           User 12
