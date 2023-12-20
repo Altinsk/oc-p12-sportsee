@@ -124,7 +124,7 @@ export default function PieGraph(props) {
             outerRadius={80}
             fill="white"
             dataKey="value"
-            startAngle={-260}
+            startAngle={-285}
             cornerRadius={-10}
           >
             <Label
